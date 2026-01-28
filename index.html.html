@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Una cartita para ti amorcito 💌</title>
+
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: #d8c3a5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .envelope {
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .envelope h2 {
+      color: #4a2c2a;
+    }
+
+    .letter {
+      display: none;
+      background: #fdf5e6;
+      max-width: 900px;
+      padding: 60px 50px;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      color: #4a2c2a;
+      background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 4px 4px;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+
+    .date {
+      text-align: right;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+    }
+
+    .content {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      white-space: pre-line;
+    }
+
+    .signature {
+      margin-top: 40px;
+      font-size: 1.2rem;
+    }
+
+    .signature span {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 40px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Música romántica -->
+  <audio id="music" preload="auto">
+    <source src="./musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Sobre cerrado -->
+  <div class="envelope" onclick="openLetter()">
+    <h2>💗 Toca aquí para abrir la carta 💗</h2>
+    <p>(Hay algo especial esperándote, vamos amorcito, ábrela)</p>
+  </div>
+
+  <!-- Carta -->
+  <div class="letter" id="letter">
+    <h1>Mi amorcito lindo 💗</h1>
+    <div class="date">Lima, 23 de enero del 2026</div>
+
+    <div class="content">
+Bueno amorcito, hoy quise darte algo diferente, algo que puedas ver cada vez que
+me extrañes o quieras saber lo mucho que te amo.
+
+Sé que no tendré mucho dinero pero créeme que siempre hago lo posible por darte
+cosas lindas y novedosas. Así que por eso decidí hacerte esta página web
+(ojalá me funcione), y también ojalá que haya logrado terminarla antes del 23,
+esto de programar sí es bien difícil cuyeyo.
+
+Gracias por ser mi enamorado, mejor amigo, cómplice, futuro esposo y padre
+de nuestros futuros hijitos.
+
+Gracias por ser la persona que siempre me impulsa a ser mejor cada día,
+el que me recuerda lo muy bonita que me veo, el que trabaja día y noche
+para poder salir o darme esos ramitos que aprecio día a día.
+Te amo como no tienes idea amorcito lindo.
+
+Increíblemente ya pasó 1 AÑO desde que estamos juntos, disfrutando de nuevas
+experiencias y momentos inolvidables. Estoy agradecida por tener a mi lado
+al hombre más perfecto que existe.
+
+Te amo tanto Leo, quiero que sigamos juntos toda nuestra juventud,
+adultez y vejez; que cuando nos miren nos digan:
+"qué lindos se ven juntos, se ven tan felices y se nota que se aman".
+
+Leo Chávez Suárez, amorcito, te amo.
+Gracias por enseñarme a amar y por permitirme amarte.
+No sabes lo agradecida que estoy contigo, te amo tanto que a veces
+solo llego a llorar.
+
+En fin amorcito, feliz 1er añito juntos.
+Te amo 💗
+    </div>
+
+    <div class="signature">
+      Con todo mi amor,
+      <span>Dana 💗</span>
+    </div>
+
+    <div class="gallery">
+      <img src="./foto1.png" alt="Aquí en tu casita">
+      <img src="./foto2.png" alt="Fotito con el ramito que me diste">
+      <img src="./foto3.png" alt="Aquí felices riendo">
+      <img src="./foto4.png" alt="XD">
+      <img src="./foto5.png" alt="Con sueñito">
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.querySelector('.envelope').style.display = 'none';
+      document.getElementById('letter').style.display = 'block';
+
+      const music = document.getElementById('music');
+      music.currentTime = 0;
+      music.volume = 0.5;
+
+      music.play().catch(() => {
+        alert("Toca nuevamente para que la música suene 💗");
+      });
+    }
+  </script>
+
+</body>
+</html>
